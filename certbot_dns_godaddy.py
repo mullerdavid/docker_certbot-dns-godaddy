@@ -68,7 +68,8 @@ class _GodaddyLexiconClient(dns_common_lexicon.LexiconClient):
         super(_GodaddyLexiconClient, self).__init__()
         config = dns_common_lexicon.build_lexicon_config('godaddy', {}, {
             'auth_key': credentials('key'),
-            'auth_secret': credentials('secret')
+            'auth_secret': credentials('secret'),
+            'ttl': 600,
         })
 
         self.provider = godaddy.Provider(config)
@@ -90,7 +91,7 @@ class _GodaddyLexiconClient(dns_common_lexicon.LexiconClient):
             return
 
         try:
-            self.provider.create_record(rtype='TXT', name=record_name, content=record_content, ttl=600)
+            self.provider.create_record(rtype='TXT', name=record_name, content=record_content)
         except RequestException as e:
             logger.debug('Encountered error adding TXT record: %s', e, exc_info=True)
             raise errors.PluginError('Error adding TXT record: {0}'.format(e))
