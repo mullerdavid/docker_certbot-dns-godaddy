@@ -90,7 +90,7 @@ class _GodaddyLexiconClient(dns_common_lexicon.LexiconClient):
             return
 
         try:
-            self.provider.create_record(rtype='TXT', name=record_name, content=record_content)
+            self.provider.create_record(rtype='TXT', name=record_name, content=record_content, ttl=600)
         except RequestException as e:
             logger.debug('Encountered error adding TXT record: %s', e, exc_info=True)
             raise errors.PluginError('Error adding TXT record: {0}'.format(e))
