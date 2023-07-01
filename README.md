@@ -1,3 +1,7 @@
+Original work
+==================
+Forked from [miigotu/certbot-dns-godaddy](https://github.com/miigotu/certbot-dns-godaddy).
+
 certbot-dns-godaddy
 ==================
 
