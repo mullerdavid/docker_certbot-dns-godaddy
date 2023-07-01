@@ -1,7 +1,7 @@
 certbot-dns-godaddy
 ==================
 
-[![Version](https://img.shields.io/pypi/v/certbot-dns-godaddy.svg)](https://pypi.python.org/pypi/certbot-dns-godaddy) [![License: Apache](https://img.shields.io/pypi/l/certbot-dns-godaddy.svg)](https://github.com/miigotu/certbot-dns-godaddy/blob/master/LICENSE.txt) [![Docker image size](https://img.shields.io/docker/image-size/miigotu/certbot-dns-godaddy)](https://hub.docker.com/repository/docker/miigotu/certbot-dns-godaddy)
+[![Version](https://img.shields.io/pypi/v/certbot-dns-godaddy.svg)](https://pypi.python.org/pypi/certbot-dns-godaddy) [![License: Apache](https://img.shields.io/pypi/l/certbot-dns-godaddy.svg)](https://github.com/mullerdavid/docker_certbot-dns-godaddy/blob/master/LICENSE.txt) [![Docker image size](https://img.shields.io/docker/image-size/mullerdavid2/certbot-dns-godaddy)](https://hub.docker.com/repository/docker/mullerdavid2/certbot-dns-godaddy)
 
 [godaddy](https://www.godaddy.com/) DNS Authenticator plugin for [certbot](https://certbot.eff.org/).
 
@@ -64,7 +64,7 @@ Docker
 
 You can build a docker image from source using the included `Dockerfile` or pull the latest version directly from Docker Hub:
 
-    docker pull miigotu/certbot-dns-godaddy
+    docker pull mullerdavid2/certbot-dns-godaddy
 
 Once that's finished, the application can be run as follows:
 
@@ -72,7 +72,7 @@ Once that's finished, the application can be run as follows:
       -v /var/lib/letsencrypt:/var/lib/letsencrypt \
       -v /etc/letsencrypt:/etc/letsencrypt \
       --cap-drop=all \
-      miigotu/certbot-dns-godaddy certbot certonly \
+      mullerdavid2/certbot-dns-godaddy certbot certonly \
         --authenticator dns-godaddy \
         --dns-godaddy-propagation-seconds 900 \
         --dns-godaddy-credentials /var/lib/letsencrypt/godaddy_credentials.ini \
