@@ -66,13 +66,15 @@ class _GodaddyLexiconClient(dns_common_lexicon.LexiconClient):
 
     def __init__(self, credentials):
         super(_GodaddyLexiconClient, self).__init__()
+        ttl = 600,
         config = dns_common_lexicon.build_lexicon_config('godaddy', {}, {
             'auth_key': credentials('key'),
             'auth_secret': credentials('secret'),
-            'ttl': 600,
+            'ttl': ttl,
         })
 
         self.provider = godaddy.Provider(config)
+        self.provider.config.with_dict({"ttl": ttl})
 
     def add_txt_record(self, domain, record_name, record_content):
         """
